@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class SettingsMenuComponent {
   @Input() isSettingsMenu: any;
+  @Input() idx: any;
 }
