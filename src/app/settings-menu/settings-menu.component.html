@@ -1,0 +1,59 @@
+<div
+  #settingsModal
+  [ngClass]="{ hidden: isSettingsMenu }"
+  class="filter-settings__modal settings-modal"
+>
+  <!-- section -->
+  <div class="settings-modal__section modal-section">
+    <!-- title -->
+    <p class="modal-section__title">Системные поля</p>
+    <!-- checks -->
+    <div class="modal-section__checks modal-checks">
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck11" type="checkbox" />
+        <label for="modalcheck11" class="modal-check__label">Поиск</label>
+      </div>
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck12" type="checkbox" />
+        <label for="modalcheck12" class="modal-check__label">Группа</label>
+      </div>
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck13" type="checkbox" />
+        <label for="modalcheck13" class="modal-check__label">Должность</label>
+      </div>
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck14" type="checkbox" />
+        <label for="modalcheck14" class="modal-check__label">Стаж</label>
+      </div>
+    </div>
+  </div>
+  <!-- section -->
+  <div class="settings-modal__section modal-section">
+    <!-- title -->
+    <p class="modal-section__title">Дополнительные поля</p>
+    <!-- checks -->
+    <div class="modal-section__checks modal-checks">
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck15" type="checkbox" />
+        <label for="modalcheck15" class="modal-check__label"
+          >Подразделение</label
+        >
+      </div>
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck16" type="checkbox" />
+        <label for="modalcheck16" class="modal-check__label">Округ</label>
+      </div>
+      <!-- check -->
+      <div class="modal-checks__check modal-check">
+        <input class="modal-check__input" id="modalcheck17" type="checkbox" />
+        <label for="modalcheck17" class="modal-check__label">Город</label>
+      </div>
+    </div>
+  </div>
+</div>

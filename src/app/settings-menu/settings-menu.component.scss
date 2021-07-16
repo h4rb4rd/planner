@@ -1,0 +1,68 @@
+.settings-modal {
+  position: absolute;
+  top: 50px;
+  left: 140px;
+  width: 168px;
+  height: 334px;
+  background: #fff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 16px;
+  z-index: 200;
+}
+.modal-section {
+  margin: 0px 0px 25px 0px;
+  &__title {
+    font-size: 10px;
+    line-height: 12px;
+    color: #757575;
+    margin: 0px 0px 20px 0px;
+  }
+}
+.modal-check {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.modal-check__input {
+  position: absolute;
+  -webkit-appearance: none;
+  -moz-appearence: none;
+  appearance: none;
+}
+
+.modal-check__label {
+  font-size: 12px;
+  line-height: 16px;
+  color: #212121;
+  cursor: pointer;
+}
+
+.modal-check__label::after {
+  content: "";
+  display: block;
+  transform: rotate(45deg);
+  height: 12px;
+  width: 6px;
+  border-bottom: 2px solid #1071ff;
+  border-right: 2px solid #1071ff;
+
+  position: absolute;
+  bottom: 4px;
+  right: 5px;
+  z-index: 2;
+
+  opacity: 0;
+  transition: opacity 0.2s ease 0s;
+}
+
+.modal-check__input:checked + .modal-check__label {
+  color: #1071ff;
+}
+
+.modal-check__input:checked + .modal-check__label::after {
+  opacity: 1;
+}
+.hidden {
+  display: none;
+}

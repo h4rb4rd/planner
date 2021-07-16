@@ -1,0 +1,41 @@
+<div
+  class="table-items__item table-item"
+  [ngClass]="{ muted: item.progress < 80 }"
+>
+  <!-- date -->
+  <p class="table-item table-item--date">{{ item.date }}</p>
+  <!-- name -->
+  <p class="table-item table-item--name">{{ item.name }}</p>
+  <!-- participants -->
+  <p class="table-item table-item--participants">
+    {{ item.partisipants }}
+  </p>
+  <!-- coach -->
+  <p class="table-item table-item--coach">{{ item.coach }}</p>
+  <!-- progress -->
+  <p class="table-item table-item--progress">{{ item.progress }}%</p>
+  <!-- settings -->
+  <div (click)="showMenu(item)" class="table-item table-item--settings">
+    <img src="../assets/icons/table-item-settings.svg" alt="settings-icon" />
+  </div>
+  <!-- item menu -->
+  <div *ngIf="item.visible">
+    <!-- item-menu -->
+    <div class="table-item__menu item-menu">
+      <!-- option -->
+      <div class="item-menu__option menu-option">
+        <div class="menu-option__icon">
+          <img src="../assets/icons/item-menu-edit.svg" alt="edit-icon" />
+        </div>
+        <p class="menu-option__text">Редактировать</p>
+      </div>
+      <!-- option -->
+      <div class="item-menu__option menu-option">
+        <div class="menu-option__icon">
+          <img src="../assets/icons/item-menu-delete.svg" alt="delete-icon" />
+        </div>
+        <p (click)="deleteItem(item)" class="menu-option__text">Удалить слот</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,441 @@
+<div *ngIf="mainModalOpen">
+  <div class="modal">
+    <!-- overlay -->
+    <div class="modal__overlay">
+      <!-- form -->
+      <form class="modal-form">
+        <!-- header -->
+        <div class="modal-form__header modal-header">
+          <!-- title -->
+          <p class="modal-header__title">Планирование</p>
+          <!-- actions -->
+          <div class="modal-header__actions header-actions">
+            <button
+              (click)="closeMainModal()"
+              class="header-actions__button header-actions__button--done"
+            >
+              <img
+                src="../assets/icons/modal-header-done.svg"
+                alt="done-icon"
+              />
+            </button>
+            <button
+              (click)="closeMainModal()"
+              class="header-actions__button header-actions__button--close"
+            >
+              <img
+                src="../assets/icons/modal-header-close.svg"
+                alt="close-icon"
+              />
+            </button>
+          </div>
+        </div>
+        <!-- tabs -->
+        <div class="modal__tabs">
+          <app-tabs
+            (isContentOne)="showModalContentOne($event)"
+            (isContentTwo)="showModalContentTwo($event)"
+            [tabOneTitle]="'Основное'"
+            [tabTwoTitle]="'Участники'"
+            [contentOne]="modalContentOne"
+            [contentTwo]="modalContentTwo"
+          ></app-tabs>
+        </div>
+
+        <!-- content 1 ================-->
+        <div *ngIf="modalContentOne">
+          <div class="modal-form__content modal-content modal-content--1">
+            <!-- programm-select -->
+            <div class="modal-programm modal-programm">
+              <!-- title -->
+              <div class="modal-programm__title">Программа</div>
+              <!-- select -->
+              <div class="modal-programm__select">
+                <select name="" id="">
+                  <option value="1">Страхование с заботой о клиенте</option>
+                  <option value="1">option 2</option>
+                </select>
+              </div>
+            </div>
+            <!-- events -->
+            <div class="modal__events modal-events">
+              <!-- title -->
+              <h2 class="modal-events__title">
+                Мероприятие, дата и время проведения
+              </h2>
+              <!-- event -->
+              <div class="modal-events__event modal-event">
+                <!-- header -->
+                <div class="modal-event__header event-header">
+                  <!-- title -->
+                  <p class="event-header__title">Мероприятие</p>
+                  <!-- text -->
+                  <div class="event-header__text event-text">
+                    <!-- name -->
+                    <span class="event-text__name">Главные правила продаж</span>
+                    <!-- type -->
+                    <span class="event-text__type">Тренинг</span>
+                  </div>
+                </div>
+                <!-- options -->
+                <div class="modal-event__options event-options">
+                  <app-modal-select
+                    *ngFor="let iterSelect of eventSelectData"
+                    [select]="iterSelect"
+                  ></app-modal-select>
+                </div>
+              </div>
+              <!-- event -->
+              <div class="modal-events__event modal-event--dis">
+                <!-- header -->
+                <div class="modal-event__header event-header">
+                  <!-- title -->
+                  <p class="event-header__title">Мероприятие</p>
+                  <!-- text -->
+                  <div class="event-header__text event-text">
+                    <!-- name -->
+                    <span class="event-text__name">Страхование без потерь</span>
+                    <!-- type -->
+                    <span class="event-text__type">Тренинг</span>
+                  </div>
+                </div>
+                <!-- options -->
+                <div
+                  class="
+                    modal-event__options
+                    event-options event-options--muted
+                  "
+                >
+                  <app-modal-select
+                    *ngFor="let iterSelect of eventSelectDataDisabled"
+                    [select]="iterSelect"
+                    [isDisabled]="isDisabled"
+                  ></app-modal-select>
+                </div>
+              </div>
+              <!-- event -->
+              <div class="modal-events__event modal-event--dis">
+                <!-- header -->
+                <div class="modal-event__header event-header">
+                  <!-- title -->
+                  <p class="event-header__title">Мероприятие</p>
+                  <!-- text -->
+                  <div class="event-header__text event-text">
+                    <!-- name -->
+                    <span class="event-text__name"
+                      >Страховой случай или как помочь клиенту</span
+                    >
+                    <!-- type -->
+                    <span class="event-text__type">Тренинг</span>
+                  </div>
+                </div>
+                <!-- options -->
+                <div
+                  class="
+                    modal-event__options
+                    event-options event-options--muted
+                  "
+                >
+                  <app-modal-select
+                    *ngFor="let iterSelect of eventSelectDataDisabled"
+                    [select]="iterSelect"
+                    [isDisabled]="isDisabled"
+                  ></app-modal-select>
+                </div>
+              </div>
+            </div>
+            <!-- conditions -->
+            <div class="modal-conditions">
+              <!-- title -->
+              <div class="modal-conditions__title">Условия записи по коду</div>
+              <!-- conditions-radio -->
+              <div class="modal-conditions__radio conditions-radio">
+                <!-- radio -->
+                <div class="radio">
+                  <input
+                    class="radio__input"
+                    id="radio01"
+                    type="radio"
+                    name="radio"
+                    checked
+                  />
+                  <label class="radio__label" for="radio01"
+                    >Не использовать код доступа</label
+                  >
+                </div>
+                <!-- radio -->
+                <div class="radio">
+                  <input
+                    class="radio__input"
+                    id="radio02"
+                    type="radio"
+                    name="radio"
+                  />
+                  <label class="radio__label" for="radio02"
+                    >Требовать регистрацию</label
+                  >
+                </div>
+                <!-- radio -->
+                <div class="radio">
+                  <input
+                    class="radio__input"
+                    id="radio03"
+                    type="radio"
+                    name="radio"
+                  />
+                  <label class="radio__label" for="radio03"
+                    >Запросить только имя и фамилию</label
+                  >
+                </div>
+                <!-- radio -->
+                <div class="radio">
+                  <input
+                    class="radio__input"
+                    id="radio04"
+                    type="radio"
+                    name="radio"
+                  />
+                  <label class="radio__label" for="radio04"
+                    >Не требовать регистрацию, имя и фамилию</label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- content 2 ================-->
+        <div *ngIf="modalContentTwo">
+          <div class="modal-form__content modal-content modal-content--2">
+            <!-- participants -->
+            <div
+              cdkDropListGroup
+              class="modal__participants modal-participants"
+            >
+              <!-- available participants-->
+              <div class="modal-participants__available available-participants">
+                <!-- title -->
+                <h2 class="available-participants__title">
+                  Доступные участники
+                </h2>
+                <!-- filters -->
+                <div
+                  class="available-participants__filters participants-filters"
+                >
+                  <!-- filter - search -->
+                  <div class="participants-filters__search filters-search">
+                    <input
+                      type="text"
+                      placeholder="Поиск"
+                      [(ngModel)]="searchParticipant"
+                      [ngModelOptions]="{ standalone: true }"
+                    />
+                  </div>
+                  <app-select
+                    *ngFor="let iterSelect of modalSelects"
+                    [select]="iterSelect"
+                  ></app-select>
+                </div>
+                <!-- filters - settings -->
+                <div
+                  class="participants-filters__settings filters-settings"
+                  (mouseleave)="leaveSettingsMenu()"
+                >
+                  <!-- status -->
+                  <p class="filters-settings__status">42 пользователя</p>
+                  <!-- buttons -->
+                  <div class="filters-settings__buttons settings-buttons">
+                    <!-- customize btn -->
+                    <div
+                      class="
+                        settings-buttons__button
+                        settings-button settings-button--customize
+                      "
+                      (click)="showSettingsMenu()"
+                    >
+                      <!-- icon -->
+                      <div class="settings-button__icon">
+                        <img
+                          src="../assets/icons/customize-icon.svg"
+                          alt="customize-icon"
+                        />
+                      </div>
+                      <!-- text -->
+                      <div class="settings-button__text">Настроить</div>
+                    </div>
+                    <!-- reset btn -->
+                    <div
+                      class="
+                        settings-buttons__button
+                        settings-button settings-button--reset
+                      "
+                    >
+                      <!-- icon -->
+                      <div class="settings-button__icon">
+                        <img
+                          src="../assets/icons/reset-icon.svg"
+                          alt="reset-icon"
+                        />
+                      </div>
+                      <!-- text -->
+                      <p class="settings-button__text">Сбросить</p>
+                    </div>
+                  </div>
+                  <!-- settings modal -->
+                  <app-settings-menu
+                    [isSettingsMenu]="isSettingsMenu"
+                  ></app-settings-menu>
+                </div>
+                <!-- participants outgoing -->
+                <div class="participants__outgoing outgoing-participants">
+                  <!-- check -->
+                  <div class="outgoing-participants__check check check--all">
+                    <input
+                      (change)="checkAll(outgoingParticipants)"
+                      class="ckeck__input"
+                      id="checkall11"
+                      type="checkbox"
+                      [checked]="isCheckedAll"
+                    />
+                    <label for="checkall11" class="check__label"
+                      >Все пользователи</label
+                    >
+                  </div>
+                  <!-- list -->
+                  <div
+                    class="droplist-container"
+                    cdkDropList
+                    [cdkDropListData]="outgoingParticipants"
+                    (cdkDropListDropped)="drop($event)"
+                  >
+                    <app-modal-users
+                      (userObjData)="checkSingle($event)"
+                      *ngFor="
+                        let participant of outgoingParticipants
+                          | appFilter: searchParticipant;
+                        let id = index
+                      "
+                      cdkDrag
+                      (cdkDragEntered)="onDragEntered($event)"
+                      [participant]="participant"
+                      [outgoingParticipants]="outgoingParticipants"
+                      [id]="id"
+                    ></app-modal-users>
+                  </div>
+                </div>
+              </div>
+              <!-- event participant -->
+              <div class="modal-participants__event event-participants">
+                <h2 class="event-participants__title">Участники мероприятия</h2>
+                <!-- background -->
+                <div
+                  [class.hidden]="!isDropBg"
+                  class="event-participants__background event-background"
+                >
+                  <!-- icon -->
+                  <div class="event-background__icon">
+                    <img
+                      src="../assets/icons/dragndrop-icon.svg"
+                      alt="drag`n`drop icon"
+                    />
+                  </div>
+                  <!-- text -->
+                  <p class="event-background__text">
+                    Наполните группу, перетаскивая участников из списка
+                    доступных в левой колонке
+                  </p>
+                </div>
+                <!-- event list -->
+                <div
+                  class="
+                    participants__outgoing
+                    outgoing-participants
+                    event-participants__list
+                  "
+                >
+                  <!-- check -->
+                  <!-- <div
+                    *ngIf="eventParticipants[0].name !== ''"
+                    class="outgoing-participants__check check check--all"
+                  >
+                    <input
+                      class="ckeck__input"
+                      id="checkall02"
+                      type="checkbox"
+                      (change)="checkAll(eventParticipants)"
+                      [checked]="isCheckedAll"
+                    />
+                    <label for="checkall02" class="check__label"
+                      >Все пользователи</label
+                    >
+                  </div> -->
+                  <!-- list -->
+                  <div
+                    class="droplist-container"
+                    cdkDropList
+                    [cdkDropListData]="eventParticipants"
+                    (cdkDropListDropped)="drop($event)"
+                  >
+                    <div
+                      class="outgoing-participants__list"
+                      *ngFor="
+                        let participant of eventParticipants;
+                        let id = index
+                      "
+                      cdkDrag
+                    >
+                      <div class="outgoing-participants__check check">
+                        <span> {{ participant.name }}</span>
+                        <div
+                          class="check__delete"
+                          (click)="deleteDroppedItem(participant)"
+                        >
+                          <img
+                            src="../assets/icons/delete-dropped-item.svg"
+                            alt="bin icon"
+                          />
+                        </div>
+                      </div>
+                      <!-- <div class="outgoing-participants__check check">
+                        <input
+                          (change)="
+                            checkSingle(
+                              outgoingParticipants,
+                              participant.isChecked,
+                              id
+                            )
+                          "
+                          class="ckeck__input"
+                          id="eventcheck{{ id }}"
+                          type="checkbox"
+                          [checked]="participant.isChecked"
+                        />
+                        <label
+                          *ngIf="participant.name"
+                          for="eventcheck{{ id }}"
+                          class="check__label"
+                          >{{ participant.name }}</label
+                        >
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <!-- event dragbutton -->
+                <div
+                  class="event-participants__dragbutton event-dragbutton"
+                  (click)="movedItems()"
+                >
+                  <div class="event-dragbutton__icon">
+                    <img
+                      src="../assets/icons/dragbutton-icon.svg"
+                      alt="drag-icon"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

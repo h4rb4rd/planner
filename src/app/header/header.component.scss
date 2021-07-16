@@ -1,0 +1,131 @@
+// header ===================
+
+.header {
+  margin: 0px 0px 39px 0px;
+}
+// actions
+.actions-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 42px 24px 18px;
+  margin: 0px 0px 4px 0px;
+}
+
+// burger
+.header-burger {
+  cursor: pointer;
+  &__icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+// buttons
+.open-button {
+  display: flex;
+  align-items: center;
+  &__icon {
+    min-width: 18px;
+    min-height: 18px;
+    margin: 0px 8px 0px 0px;
+  }
+  &__text {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 16px;
+    color: #1071ff;
+  }
+}
+
+// title
+.header-title {
+  display: flex;
+  align-items: center;
+  &__icon {
+    width: 32px;
+    height: 32px;
+    margin: 0px 16px 0px 0px;
+  }
+
+  &__text {
+    font-weight: 700;
+    font-size: 38px;
+    line-height: 40px;
+    color: #212121;
+    &--mobile {
+      display: none;
+    }
+  }
+}
+
+// breadcrumbs
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 19px 0px;
+
+  li {
+    font-size: 12px;
+    line-height: 16px;
+    color: #757575;
+  }
+
+  li + li:before {
+    content: "";
+    display: inline-block;
+    border: 1px solid #75757562;
+    width: 13px;
+    margin: 0px 9px 3px 9px;
+  }
+
+  li a {
+    color: #757575;
+    text-decoration: none;
+  }
+}
+
+// header - media ****************
+@media screen and (max-width: 1280px) {
+  // actions
+  .actions-header {
+    padding: 24px 8px 24px 8px;
+  }
+}
+@media screen and (max-width: 1162px) {
+  .actions-header {
+    padding: 24px 8px 24px 0px;
+  }
+}
+@media screen and (max-width: 767.98px) {
+  .breadcrumbs {
+    display: none;
+  }
+  .header-title {
+    display: none;
+  }
+  .header-title__text--mobile {
+    display: block;
+    font-size: 26px;
+  }
+}
+@media screen and (max-width: 479.98px) {
+  .header-title__text--mobile {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  .open-button__text {
+    display: none;
+  }
+  .open-button__icon {
+    width: 24px;
+    height: 24px;
+  }
+  .header {
+    margin: 0px 0px 0px 0px;
+  }
+  .actions-header {
+    padding: 24px 13px 6px 9px;
+    margin: 0px 0px 4px 0px;
+  }
+}

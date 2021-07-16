@@ -1,0 +1,145 @@
+.table-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #212121;
+  padding: 0px 0px 0px 8px;
+  margin: 0px 0px 0px -16px;
+  &.muted {
+    opacity: 50%;
+  }
+  &--progress {
+    display: flex;
+    align-items: center;
+
+    &:before {
+      content: "";
+      background: url("../assets/icons/progress-icon.svg") 0 0 no-repeat;
+      width: 20px;
+      height: 20px;
+      margin: 0px 4px 0px 0px;
+    }
+  }
+
+  &--settings {
+    cursor: pointer;
+    display: none;
+    img {
+      width: 32px;
+      height: 32px;
+    }
+    padding: 0px 0px 0px 0px;
+  }
+}
+.item-menu {
+  position: absolute;
+  bottom: 45px;
+  right: 8px;
+  width: 162px;
+  height: 88px;
+  background: #ffffff;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.16);
+  border-radius: 4px;
+  padding: 18px 16px;
+}
+.menu-option {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  &:not(:last-child) {
+    margin: 0px 0px 10px 0px;
+  }
+  &__icon {
+    width: 18px;
+    height: 18px;
+    margin: 0px 16px 0px 0px;
+  }
+  &__text {
+    font-size: 12px;
+    line-height: 16px;
+    color: #212121;
+  }
+}
+// col
+
+.table-item--date {
+  max-width: 86px;
+  width: 100%;
+  margin: 0px 24px 0px 0px;
+}
+
+.table-item--name {
+  max-width: 546px;
+  width: 100%;
+  margin: 0px 30px 0px 0px;
+}
+
+.table-item--participants {
+  max-width: 104px;
+  width: 100%;
+  margin: 0px 32px 0px 0px;
+}
+
+.table-item--coach {
+  max-width: 48px;
+  width: 100%;
+  margin: 0px 84px 0px 0px;
+}
+
+.table-item--progress {
+  max-width: 87px;
+  width: 100%;
+  margin: 0px 73px 0px 0px;
+}
+
+.table-item:hover {
+  background: #f6f6f6;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+  .table-item--settings {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 767.98px) {
+  .table-item--progress {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+  }
+
+  .table-item--coach {
+    display: none;
+  }
+}
+@media screen and (max-width: 575.98px) {
+  // col
+
+  .table-item--date {
+    min-width: 86px;
+    margin: 0px 18px 0px 0px;
+  }
+
+  .table-item--name {
+    min-width: 118px;
+    margin: 0px 16px 0px 0px;
+  }
+  .table-head__item--participants,
+  .table-item--participants {
+    margin: 0px 18px 0px 0px;
+  }
+
+  .table-head__item--progress,
+  .table-item--progress {
+    min-width: 58px;
+    margin: 0px 0px 0px 0px;
+  }
+  .table-item {
+    align-items: flex-start;
+  }
+  .table-item--progress {
+    align-items: flex-start;
+  }
+}

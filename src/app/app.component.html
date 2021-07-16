@@ -1,0 +1,156 @@
+<!-- header -->
+<app-header (onModalOpen)="openMainModal($event)"></app-header>
+<!-- main -->
+<main class="main">
+  <!-- container -->
+  <div class="main__container container">
+    <!-- tabs -->
+    <div class="main__tabs">
+      <app-tabs
+        (isContentOne)="showContentOne($event)"
+        (isContentTwo)="showContentTwo($event)"
+        [tabOneTitle]="'Групповое'"
+        [tabTwoTitle]="'Индивидуальное'"
+        [contentOne]="contentOne"
+        [contentTwo]="contentTwo"
+      ></app-tabs>
+    </div>
+    <!-- content -->
+    <div *ngIf="contentOne">
+      <div class="main__content content content--1">
+        <!-- filters -->
+        <div class="content__filters content-filters">
+          <!-- filter - search -->
+          <div class="content-filters__search filters-search">
+            <input [(ngModel)]="searchValue" type="text" placeholder="Поиск" />
+            <div class="filters-search__icon">
+              <img
+                src="../assets/icons/search-filter-icon.svg"
+                alt="search-filter-icon"
+              />
+            </div>
+          </div>
+          <!-- main selects -->
+          <app-select
+            *ngFor="let iterSelect of mainSelects"
+            [select]="iterSelect"
+          ></app-select>
+          <!-- filter - select - mobile-->
+          <div
+            class="
+              content-filters__select
+              filters-select filters-select--mobile
+            "
+          >
+            <!-- title -->
+            <div class="filters-select__title">Сортировка</div>
+            <!-- select -->
+            <div class="filters-select__select">
+              <select name="" id="">
+                <option value="1">По прогрессу обучения</option>
+                <option value="1">option 2</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <!-- filters - settings -->
+        <div
+          (mouseleave)="leaveMainSettingsMenu()"
+          class="content-filters__settings filters-settings"
+        >
+          <!-- status -->
+          <p class="filters-settings__status">34 сессии</p>
+          <!-- buttons -->
+          <div class="filters-settings__buttons settings-buttons">
+            <!-- customize btn -->
+            <div
+              (click)="showMainSettingsMenu()"
+              class="
+                settings-buttons__button
+                settings-button settings-button--customize
+              "
+            >
+              <!-- icon -->
+              <div class="settings-button__icon">
+                <img
+                  src="../assets/icons/customize-icon.svg"
+                  alt="customize-icon"
+                />
+              </div>
+              <!-- text -->
+              <p class="settings-button__text">Настроить фильтр</p>
+            </div>
+            <!-- reset btn -->
+            <div
+              class="
+                settings-buttons__button
+                settings-button settings-button--reset
+              "
+            >
+              <!-- icon -->
+              <div class="settings-button__icon">
+                <img src="../assets/icons/reset-icon.svg" alt="reset-icon" />
+              </div>
+              <!-- text -->
+              <p class="settings-button__text">Сбросить</p>
+            </div>
+          </div>
+          <!-- settings modal -->
+          <app-settings-menu
+            [isSettingsMenu]="isMainSettingsMenu"
+          ></app-settings-menu>
+        </div>
+        <!-- content table -->
+        <div class="content__table content-table">
+          <!-- table head -->
+          <ul class="content-table__head table-head">
+            <li class="table-head__item table-head__item--date">Дата начала</li>
+            <li class="table-head__item table-head__item--name">Название</li>
+            <li class="table-head__item table-head__item--participants">
+              Участники
+            </li>
+            <li
+              class="
+                table-head__item
+                table-head__item--participants
+                table-head__item--mobile
+              "
+            >
+              Уч.
+            </li>
+            <li class="table-head__item table-head__item--coach">Тренер</li>
+            <li
+              (click)="sortProgress()"
+              [ngClass]="{ rotated: !isSorted }"
+              class="table-head__item table-head__item--progress"
+            >
+              Прогресс
+            </li>
+          </ul>
+          <!-- table items -->
+
+          <div class="content-table__items table-items">
+            <!-- item -->
+            <app-table-item
+              *ngFor="let item of items | appFilter: searchValue"
+              [item]="item"
+              [items]="items"
+              (mouseleave)="closeMenu(item)"
+              (onItemIdx)="showMenu($event)"
+              (onDeleteItemIdx)="deleteItem($event)"
+            ></app-table-item>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="contentTwo">
+      <div class="main__content content content--1">content 2</div>
+    </div>
+  </div>
+</main>
+
+<!--main modal  -->
+<app-modal
+  [mainModalOpen]="mainModalOpen"
+  (onModalClose)="closeMainModal($event)"
+></app-modal>

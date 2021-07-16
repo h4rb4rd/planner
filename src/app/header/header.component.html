@@ -1,0 +1,43 @@
+<!--************** header **************-->
+<header class="header">
+  <!-- actions -->
+  <div class="header__actions actions-header">
+    <!-- burger -->
+    <div class="actions-header__burger header-burger">
+      <!-- icon -->
+      <div class="header-burger__icon">
+        <img src="../assets/icons/burger-icon.svg" alt="burger-icon" />
+      </div>
+    </div>
+    <h1 class="header-title__text header-title__text--mobile">Обучение</h1>
+    <!-- button -->
+    <div class="actions-header__buttons header-buttons">
+      <!-- open -->
+      <div (click)="showMainModal()" class="header-buttons__open open-button">
+        <!-- icon -->
+        <a href="#" class="open-button__icon"
+          ><img src="../assets/icons/plus-icon.svg" alt="plus-icon"
+        /></a>
+        <!-- text-->
+        <a href="#" class="open-button__text">Запланировать</a>
+      </div>
+    </div>
+  </div>
+  <!-- container -->
+  <div class="header__container container">
+    <!-- breadcrumbs -->
+    <ul class="header__breadcrumbs breadcrumbs">
+      <li><a href="#">Главная</a></li>
+      <li>Планирование</li>
+    </ul>
+    <!-- title -->
+    <div class="header__title header-title">
+      <!-- icon -->
+      <div class="header-title__icon">
+        <img src="../assets/icons/Planning.svg" alt="planner-icon" />
+      </div>
+      <!-- text -->
+      <h1 class="header-title__text">Планирование</h1>
+    </div>
+  </div>
+</header>

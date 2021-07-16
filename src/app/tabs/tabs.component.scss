@@ -1,0 +1,31 @@
+// tabs
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.tab {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 16px;
+  color: #757575;
+  padding: 0px 0px 8px 0px;
+
+  &--1 {
+    margin: 0px 25px 0px 0px;
+  }
+
+  &.active {
+    color: #212121;
+    border-radius: 2px;
+    border-bottom: 2px solid #1071ff;
+  }
+}
+@media screen and (max-width: 479.98px) {
+  .tabs {
+    margin: 0px 0px 30px 0px;
+  }
+  .tab--1 {
+    margin: 0px 18px 0px 0px;
+  }
+}

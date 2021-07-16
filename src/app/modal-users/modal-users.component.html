@@ -1,0 +1,15 @@
+<div class="outgoing-participants__list">
+  <!-- check -->
+  <div class="outgoing-participants__check check">
+    <input
+      (change)="checkSingle()"
+      class="ckeck__input"
+      id="outcheck{{ id }}"
+      type="checkbox"
+      [checked]="participant.isChecked"
+    />
+    <label for="outcheck{{ id }}" class="check__label">{{
+      participant.name
+    }}</label>
+  </div>
+</div>

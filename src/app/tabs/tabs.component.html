@@ -1,0 +1,17 @@
+<!-- tabs -->
+<div class="main__tabs tabs">
+  <div
+    (click)="showContentOne()"
+    class="tabs__tab tab tab--1"
+    [class.active]="contentOne"
+  >
+    {{ tabOneTitle }}
+  </div>
+  <div
+    (click)="showContentTwo()"
+    class="tabs__tab tab tab--2"
+    [class.active]="contentTwo"
+  >
+    {{ tabTwoTitle }}
+  </div>
+</div>
